@@ -7,6 +7,7 @@ int main()
 	int i;
 	int ch;
 
+	start:
 	printf("------CAESAR CIPHER-------\
 		\n1. Encrypt\
 		\n2. Decrypt\
@@ -36,6 +37,10 @@ int main()
 					msg[i]+=26;
 			}
 			printf("Decrypted: %s\n",msg);
+		default:
+			printf("Invalid Option\n");
+			goto start;
+			break;
 	}
 
 	return 0;
