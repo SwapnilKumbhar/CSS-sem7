@@ -7,6 +7,7 @@
 **		- Add Documentation.
 **		- Add README with diagramatic explaination.
 **		- Decide a better name. Or not.
+**		- Add parameter to change resultant plaintext or ciphertext file. Right now is default to pt.dat and ct.dat respectively.
 */
 
 #include <stdio.h>
@@ -62,7 +63,7 @@ int main(int argc, char* argv[])
 	}
 	else
 	{
-		printf("Usage: <Option> <Text> <Key>\n");
+		printf("Usage: <Option> <Text> <Key>\nFor menu enter -h or -help.");
 	}
 
 	return 0;
@@ -93,15 +94,15 @@ void encryptFest(char* pt, char* key)
 	for(i=strlen(key);i>-1;i--)
 		keybk += key[i] << (i * 8);
 
-	printf("KEY: %04x\n",keybk);
+	// printf("KEY: %04x\n",keybk);
 
 	block* ctbks = encrypt(bks,keybk,NO_BLOCKS);
 
-	printf("CipherText (HEX): ");
+	// printf("CipherText (HEX): ");
 
-	for(i=0;i<NO_BLOCKS;i++)
-		printf("%04x",ctbks[i]);			
-	printf("\n");
+	// for(i=0;i<NO_BLOCKS;i++)
+		// printf("%04x",ctbks[i]);			
+	// printf("\n");
 
 	writeBlocks(ctbks, NO_BLOCKS, "ct.dat");
 
@@ -153,15 +154,15 @@ void decryptFest(char* ct, char* key)
 	for(i=strlen(key);i>-1;i--)
 		keybk += key[i] << (i * 8);
 
-	printf("KEY: %04x\n",keybk);
+	// printf("KEY: %04x\n",keybk);
 
 	block* ctbks = decrypt(bks,keybk,NO_BLOCKS);
 
-	printf("Plain Text (HEX): ");
+	// printf("Plain Text (HEX): ");
 
-	for(i=0;i<NO_BLOCKS;i++)
-		printf("%04x",ctbks[i]);			// Cipher Text
-	printf("\n");
+	// for(i=0;i<NO_BLOCKS;i++)
+	// 	printf("%04x",ctbks[i]);			// Cipher Text
+	// printf("\n");
 
 	writeBlocks(ctbks, NO_BLOCKS, "pt.dat");
 }

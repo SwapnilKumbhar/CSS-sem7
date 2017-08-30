@@ -1,0 +1,11 @@
+# EXECUTABLES
+*.exe
+bin/
+
+# RESULTANT FILES
+*.dat
+
+# EXAMPLE PLAINTEXT FILES (Images, PDFs etc)
+*.pdf
+*.jpg
+*.png
